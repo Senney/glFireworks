@@ -1,0 +1,10 @@
+Currently only for Linux.
+
+Requires:
+OpenGL headers
+
+To make:
+Use make.
+
+To run:
+Take a wild guess.
