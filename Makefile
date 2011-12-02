@@ -1,18 +1,19 @@
 LIBFLAGS=
 OUTFILE=FireworkSimulator
 
-OBJ = FireworkSimulator.o Firework.o
+OBJ = FireworkSimulator.o Firework.o Physics/PhysicsHandler.o Physics/PhysicsRule.o
 
 run: all
 	./$(OUTFILE)
 
-fractalGen: $(OBJ)
+fwSim: $(OBJ)
 	g++ $(OBJ) $(LIBFLAGS) -o $(OUTFILE)
 	
 %.o: %.cpp
 	g++ -o $@ -c $< $(LIBFLAGS)
 	
-all: fractalGen
+all: fwSim
 
 clean:
 	rm $(OBJ) $(OUTFILE)
+	
