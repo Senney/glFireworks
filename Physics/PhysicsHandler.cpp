@@ -18,10 +18,23 @@ void PhysicsHandler::removeRule(int index) {
 	rules.erase(rules.begin() + index);
 }
 
+int PhysicsHandler::addObject(Objects::Object& obj) {
+	objs.push_back(&obj);
+	return objs.size() - 1;
+}
+
+void PhysicsHandler::removeObject(int index) {
+	if (index > (objs.size() - 1) || index < 0)
+		return;
+	objs.erase(objs.begin() + index);
+}	
+
 void PhysicsHandler::update() {
-	std::vector<PhysicsRule*>::iterator iter;
-	for (iter = rules.begin(); iter < rules.end(); iter++)
-	{
-		// Handle object updates in hurrrr.
+	for (int i = 0; i < rules.size(); i++) {
+		for (int j = 0; j < objs.size(); j++) {
+			Objects::Object* cur = objs.at(j);
+			PhysicsRule* curRule = rules.at(i);
+			cur->setAcceleration(curRule->accel());
+		}
 	}
 }

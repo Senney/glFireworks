@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "../Handler.h"
+#include "../Objects/Object.h"
 #include "PhysicsRule.h"
 
 namespace Physics {
@@ -17,11 +18,16 @@ public:
 	int addRule(PhysicsRule& rule);
 	void removeRule(int index);
 	
+	/* Object management */
+	int addObject(Objects::Object& obj);
+	void removeObject(int index);
+	
 	/* Update */
 	virtual void update();
 	
 private:
 	std::vector<PhysicsRule*> rules;
+	std::vector<Objects::Object*> objs;
 };
 
 }
