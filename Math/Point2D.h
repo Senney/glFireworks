@@ -84,7 +84,7 @@ public:
 	}
 	
 	float dot(Point2D<T>& val) {
-		return (m_x * val.X() + m_y * val.Y());
+		return (m_x * val.getX() + m_y * val.getY());
 	}
 	
 	/* Setters */	
