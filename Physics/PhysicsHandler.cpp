@@ -30,8 +30,8 @@ void PhysicsHandler::removeObject(int index) {
 }	
 
 void PhysicsHandler::update() {
-	for (int i = 0; i < rules.size(); i++) {
-		for (int j = 0; j < objs.size(); j++) {
+	for (int j = 0; j < objs.size(); j++) {
+		for (int i = 0; i < rules.size(); i++) {
 			Objects::Object* cur = objs.at(j);
 			PhysicsRule* curRule = rules.at(i);
 			cur->setAcceleration(curRule->accel());

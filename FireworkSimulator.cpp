@@ -9,11 +9,19 @@
 #include "Physics/PhysicsHandler.h"
 #include "Window/Window.h"
 
+#include "Objects/Particle.h"
+
 int main(int argv, char** argc) { 
 	std::cout << "Fireworks Simulator : Under Construction!" << std::endl;
+		
+	Math::Point2Df pos(0.0f, 0.0f);
+	Math::Color col(100.0f, 100.0f, 100.0f);
+	Objects::Particle temp(pos, col);
 	
-	Physics::PhysicsHandler physicsHandler();		
 	GLWindow glWindow;
+	glWindow.getObjectHandler()->addObject(&temp);
+	
+	// Create a new window.	
 	glWindow.createWindow(500, 500);
 	
 	return 0;	

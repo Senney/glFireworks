@@ -20,7 +20,7 @@ public:
 	Math::Point2Df getAcceleration();
 	Math::Point2Df getVelocity();
 	Math::Point2Df getPosition();
-private:
+protected:
 	Math::Point2Df m_accel;
 	Math::Point2Df m_vel;
 	Math::Point2Df m_pos;

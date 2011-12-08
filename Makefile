@@ -2,7 +2,7 @@ LIBFLAGS=-lX11 -lGL -lGLU
 OUTFILE=FireworkSimulator
 
 OBJ = FireworkSimulator.o Firework.o Physics/PhysicsHandler.o Physics/PhysicsRule.o Objects/Object.o\
-	Window/Window.o
+	Objects/Particle.o Window/Window.o Window/WindowObjectHandler.o
 
 run: all
 	./$(OUTFILE)

@@ -5,6 +5,8 @@
 #include "../Math/Point2D.h"
 #include "../Math/Color.h"
 
+#include "GL/gl.h"
+
 namespace Objects {
 
 class Particle : public Object {
@@ -15,7 +17,7 @@ public:
 	void setColor(Math::Color color);
 	Math::Color getColor();
 	
-	
+	void draw();	
 	
 private: 
 	Math::Color m_color;

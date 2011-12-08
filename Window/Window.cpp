@@ -8,6 +8,12 @@ GLWindow::GLWindow() {
 	att[4] = None;
 }
 
+GLWindow::~GLWindow() {
+	dpy = NULL;
+	delete vi;
+	delete att;
+}
+
 void GLWindow::createWindow(int w, int h) {
 	// Create window for computer - NULL indicates that there is no external display.
 	dpy = XOpenDisplay(NULL);
@@ -26,10 +32,14 @@ void GLWindow::createWindow(int w, int h) {
 	}
 	cmap = XCreateColormap(dpy, root, vi->visual, AllocNone);	
 	swa.colormap = cmap;
-	swa.event_mask = ExposureMask | KeyPressMask | StructureNotifyMask;
+	swa.event_mask = ExposureMask | KeyPressMask;
 	
 	// Create the window.
 	win = XCreateWindow(dpy, root, 0, 0, w, h, 0, vi->depth, InputOutput, vi->visual, CWColormap | CWEventMask, &swa);
+	
+	// Setup window close handling.
+	Atom wmDeleteMessage = XInternAtom(dpy, "WM_DELETE_WINDOW", false);
+	XSetWMProtocols(dpy, win, &wmDeleteMessage, 1);
 	
 	// Map the window and store it w/ a name.
 	XMapWindow(dpy, win);
@@ -55,11 +65,12 @@ void GLWindow::createWindow(int w, int h) {
 			glMatrixMode(GL_PROJECTION);
 			glLoadIdentity();
 			glOrtho(-1.0, 1.0, -1.0, 1.0, -1, 1);
+			
+			objs.drawAll();
 			/* END MAIN DRAW AREA */
 			
 			glXSwapBuffers(dpy, win);
-		} else if (xev.type == DestroyNotify) {
-			std::cout << "Destory Notify detected (" << DestroyNotify << ")." << std::endl;
+		} else if (xev.type == ClientMessage && xev.xclient.data.l[0] == wmDeleteMessage) {
 			glXMakeCurrent(dpy, None, NULL);
 			glXDestroyContext(dpy, glc);
 			XDestroyWindow(dpy, win);
@@ -67,4 +78,8 @@ void GLWindow::createWindow(int w, int h) {
 			return;
 		}
 	}
+}
+
+bool GLWindow::isOpened() {
+	return (dpy != NULL);
 }

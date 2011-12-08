@@ -5,8 +5,16 @@ namespace Math {
 
 class Color {
 public:
-	Color() : color[0](0.0f), color[1](0.0f). color[2](0.0f) { }
-	Color(float r, float g, float b) : color[0](r), color[1](g), color[2](g) { }
+	Color() : mult(1.0f/255.0f) {
+		color[0] = 0.0f;
+		color[1] = 0.0f;
+		color[2] = 0.0f;
+	}
+	Color(float r, float g, float b) : mult(1.0f/255.0f) {
+		color[0] = r;
+		color[1] = g;
+		color[2] = b;
+	}
 	
 	float r() { return color[0]; }
 	float g() { return color[1]; }
@@ -18,6 +26,7 @@ public:
 	
 private:
 	float color[3];
+	const float mult;
 };
 
 }
