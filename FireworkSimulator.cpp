@@ -11,7 +11,7 @@
 
 #include "Objects/Particle.h"
 
-int main(int argv, char** argc) { 
+int main() { 
 	std::cout << "Fireworks Simulator : Under Construction!" << std::endl;
 		
 	Math::Point2Df pos(0.0f, 0.0f);

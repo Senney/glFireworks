@@ -24,6 +24,10 @@ public:
 	void setG(float g) { color[1] = g; }
 	void setB(float b) { color[2] = b; }
 	
+	Math::Color& Math::Color::operator=(const Math::Color& c) {
+		return c;
+	}
+	
 private:
 	float color[3];
 	const float mult;
