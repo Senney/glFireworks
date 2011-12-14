@@ -1,10 +1,16 @@
-Currently only for Linux.
+At the moment, this program is only being supported on linux. However, if you feel like trying it on another OS, feel free :)
 
 Requires:
+Qt4.7 or higher
 OpenGL headers
 
-To make:
-Use make.
+Building glFireworks:
+Since I've been using a QT based window system for this project, I figured that I'd fool around with using qmake as my build system. For you, the end-user, this means that you'll need to have qmake installed on your system. To compile from the project file that I include:
+Type:
+qmake
+make
+
+This generates the make file, then uses the make utility to build it. A binary file called FireworksSimulator will be generated for your convenience.
 
 To run:
-Take a wild guess.
+Execute the FireworksSimulator binary after building it.
