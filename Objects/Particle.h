@@ -5,8 +5,6 @@
 #include "../Math/Point2D.h"
 #include "../Math/Color.h"
 
-#include "GL/gl.h"
-
 namespace Objects {
 
 class Particle : public Object {

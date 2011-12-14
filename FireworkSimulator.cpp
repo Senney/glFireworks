@@ -4,6 +4,9 @@
 // std includes
 #include <iostream>
 
+// QT includes
+#include <QApplication>
+
 // Core includes
 #include "Math/Point2D.h"
 #include "Physics/PhysicsHandler.h"
@@ -11,18 +14,17 @@
 
 #include "Objects/Particle.h"
 
-int main() { 
+int main(int argc, char** argv) { 
 	std::cout << "Fireworks Simulator : Under Construction!" << std::endl;
+		
+	QApplication qtApp(argc, argv);
 		
 	Math::Point2Df pos(0.0f, 0.0f);
 	Math::Color col(100.0f, 100.0f, 100.0f);
 	Objects::Particle temp(pos, col);
 	
-	GLWindow glWindow;
-	glWindow.getObjectHandler()->addObject(&temp);
+	Window glWindow(400, 400, "glFireworks");
+	glWindow.show();	
 	
-	// Create a new window.	
-	glWindow.createWindow(500, 500);
-	
-	return 0;	
+	return 	qtApp.exec();
 }

@@ -1,5 +1,7 @@
 #include "Particle.h"
 
+#include "GL/gl.h"
+
 using namespace Objects;
 
 Particle::Particle() { }

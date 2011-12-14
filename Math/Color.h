@@ -24,7 +24,7 @@ public:
 	void setG(float g) { color[1] = g; }
 	void setB(float b) { color[2] = b; }
 	
-	Math::Color& Math::Color::operator=(const Math::Color& c) {
+	Color& operator=(Color& c) {
 		return c;
 	}
 	
