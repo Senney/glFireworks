@@ -2,6 +2,7 @@
 #define POINT_2D_H
 
 #include <cmath>
+#include <ostream>
 
 namespace Math {
 
@@ -67,6 +68,11 @@ public:
 		m_x /= val;
 		m_y /= val;
 		return *this;
+	}
+	
+	friend std::ostream& operator<<(std::ostream& out, const Point2D<T>& val) {
+		out << "{" << val.m_x << ", " << val.m_y << "}";
+		return out;
 	}
 	
 	/* Inequality checking */

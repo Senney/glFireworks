@@ -15,6 +15,7 @@ HEADERS += Handler.h \
            Math/Point2D.h \
            Objects/Object.h \
            Objects/Particle.h \
+           Objects/ObjectHandler.h \
            Physics/PhysicsHandler.h \
            Physics/PhysicsRule.h \
            Window/GLViewport.h \
@@ -22,6 +23,7 @@ HEADERS += Handler.h \
 SOURCES += FireworkSimulator.cpp \
            Objects/Object.cpp \
            Objects/Particle.cpp \
+           Objects/ObjectHandler.cpp \
            Physics/PhysicsHandler.cpp \
            Physics/PhysicsRule.cpp \
            Window/GLViewport.cpp \

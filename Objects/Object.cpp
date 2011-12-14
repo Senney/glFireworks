@@ -2,10 +2,15 @@
 
 using namespace Objects;
 
-Object::Object() {
+Object::Object()  {
+	m_vel = Math::Point2Df(0.0f, 0.0f);
+	m_accel = Math::Point2Df(0.0f, 0.0f);
+	m_pos = Math::Point2Df(0.0f, 0.0f);
 }
 
 Object::Object(Math::Point2Df position) {
+	m_vel = Math::Point2Df(0.0f, 0.0f);
+	m_accel = Math::Point2Df(0.0f, 0.0f);
 	m_pos = position;
 }
 

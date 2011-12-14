@@ -3,6 +3,7 @@
 
 #include <QtOpenGL/QGLWidget>
 
+class Window;
 
 class GLViewport : public QGLWidget {
 public:
@@ -11,7 +12,10 @@ public:
 protected:
 	virtual void initializeGL();
 	virtual void paintGL();
-	virtual void resizeGL(int width, int height);	
+	virtual void resizeGL(int width, int height);
+
+private slots:
+	void update();	
 };
 
 #endif

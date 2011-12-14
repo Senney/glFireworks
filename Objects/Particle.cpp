@@ -20,8 +20,10 @@ Math::Color Particle::getColor() {
 }
 
 void Particle::draw() {
-	glBegin(GL_POINTS);
-	glColor3f(m_color.r(), m_color.g(), m_color.b());
-	glVertex2f(m_pos.X(), m_pos.Y());
+	glBegin(GL_TRIANGLES);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex2f(m_pos.X(), m_pos.Y() + 0.03f);
+	glVertex2f(m_pos.X() - 0.03f, m_pos.Y());
+	glVertex2f(m_pos.X() + 0.03f, m_pos.Y());
 	glEnd();
 }
